@@ -1,0 +1,23 @@
+priority -10
+
+snippet yaml "Yaml title block" bA
+---
+title: ${1:`!v expand("%:r")`}
+author: $2
+date: ${3:`date +%Y/%m/%d`}
+---
+$0
+endsnippet
+
+snippet link
+[${1:text}](${2:link})$0
+endsnippet
+
+snippet img
+![${1:caption}](${2:img/})$0
+endsnippet
+
+snippet comment
+[//]#: $0
+endsnippet
+

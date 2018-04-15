@@ -1,0 +1,83 @@
+extends c
+
+priority -9
+
+snippet inc "Include" bA
+#include <${1:iostream}>$0
+endsnippet
+
+snippet cl "Class" b
+class ${1:`!v expand("%:t:r")`} {
+public:
+  $1();
+  virtual ~$1();
+  $0
+
+protected:
+  
+};
+endsnippet
+
+snippet dcl "Class with doc" b
+/*! \brief ${2:$1}
+ * 
+ *  ${3:(Doxygen tags: \param, \return, \sa ...)}
+ *  ${4:\todo}
+ */
+class ${1:`!v expand("%:t:r")`} {
+public:
+  $1();
+  virtual ~$1();
+  $0
+
+protected:
+  
+};
+endsnippet
+
+snippet st "Structure" b
+struct ${1:`!v expand("%:t:r")`} {
+  $0
+};
+endsnippet
+
+snippet dst "Structure with doc" b
+/*! \brief ${2:$1}
+ * 
+ *  ${3:(Doxygen tags: \param, \return, \sa ...)}
+ *  ${4:\todo}
+ */
+struct ${1:`!v expand("%:t:r")`} {
+  $0
+};
+endsnippet
+
+snippet foreach
+for (auto ${1} : ${2}) {
+  $0
+}
+endsnippet
+
+snippet forit
+for (auto ${1:it} = ${2:std::begin($3)}; $1 != ${4:std::end($3)}; ${5:++$1}) {
+  $0
+}
+endsnippet
+
+snippet using "Alias" b
+using ${1:alias} = ${2:type};
+endsnippet
+
+snippet template "" bA
+template<typename $1>$0
+endsnippet
+
+snippet ld "Lambda"
+[${3:&}]($1) { return $2; }$0
+endsnippet
+
+snippet lld "Long Lambda"
+[${2:&}]($1) {
+  ${VISUAL}$0
+};
+endsnippet
