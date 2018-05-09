@@ -6,6 +6,19 @@ snippet inc "Include" bA
 #include <${1:iostream}>$0
 endsnippet
 
+snippet iinc "Local include directive" bA
+#include "${1:`!v expand("%:t:r")`.hpp}"
+endsnippet
+
+snippet guard "Header guard" bA
+#ifndef ${1:`!v toupper(expand("%:t:r")) . "_HPP"`}
+#define $1
+
+$0
+
+#endif /* $1 */
+endsnippet
+
 snippet cl "Class" b
 class ${1:`!v expand("%:t:r")`} {
 public:
